@@ -1,2 +1,2 @@
-# Site_de_Catalogo-NodeJS-PostgreSQL
-Trabalho relacionado ao Projeto Final da BlueEdTech, esse que consiste na criação de um catálogo (com tema livre), onde será trabalhado as 4 operações do CRUD e a sicronização do Node JS e PostgreSQL.
+# catalogo_filmes
+Catalogo de filmes criado para o Módulo 02 - NodeJS Express MVC + SQL
