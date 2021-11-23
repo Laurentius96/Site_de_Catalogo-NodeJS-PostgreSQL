@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="/css/style.css" />
     <title>Detalhes do filmes</title>
   </head>
-
   <body>
     <nav>
       <img
-        src="/img/logo-blue.gif"
+        src="http://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2017/08/anuncio_mostra_competitiva_festival_cinema_2017_Agencia_Brasilia.gif"
         class="img-fluid gif"
-        alt="Animação Logo Blue"
+        alt="Gif"
       />
       <ul>
         <li>
-          <a href="/">Home</a>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="/criar">Criar</a>
         </li>
       </ul>
     </nav>
-
     <section id="filmes">
       <h3>Lista de filmes:</h3>
       <section class="card">
@@ -32,6 +33,7 @@
               <img src="<%= filme.imagem %>" width="200" />
             </a>
             <li>Sinopse: <%= filme.descricao %></li>
+            <a href="deletar/<%= filme.id %>"><li>Deletar</li> </a>
           </ul>
         </article>
       </section>

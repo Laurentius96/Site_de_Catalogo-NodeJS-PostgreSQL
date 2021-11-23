@@ -68,3 +68,65 @@ app.post("/criar", async (req, res) => {
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );
+// Rota que edita o filme através do seu ID(PK)
+app.get("/filmes/editar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if (!filme) {
+    res.render("editar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+
+  res.render("editar", {
+    filme,
+  });
+});
+
+app.post("/filmes/editar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  const { nome, descricao, imagem } = req.body;
+
+  filme.nome = nome;
+  filme.descricao = descricao;
+  filme.imagem = imagem;
+
+  const filmeEditado = await filme.save();
+
+  res.render("editar", {
+    filme: filmeEditado,
+    messageSucesso: "Filme editado!",
+  });
+});
+
+// Rota que deleta o filme através do seu ID(PK)
+app.get("/filmes/deletar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if (!filme) {
+    res.render("deletar", {
+      mensagem: "Filme não foi encontrado!",
+    });
+  }
+
+  res.render("deletar", {
+    filme,
+  });
+});
+
+app.post("/filmes/deletar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if (!filme) {
+    res.render("deletar", {
+      message: "Filme não foi encontrado!",
+    });
+  }
+
+  await filme.destroy();
+
+  message = `Filme ${filme.nome} deletado do catálogo`;
+
+  res.redirect("/");
+});

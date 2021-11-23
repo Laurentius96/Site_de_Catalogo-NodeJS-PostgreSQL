@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Catálogo</title>
+    <title>Área de Deletar</title>
   </head>
-
   <body>
     <nav>
       <img
@@ -17,43 +16,27 @@
       />
       <ul>
         <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
           <a href="/criar">Criar</a>
         </li>
       </ul>
     </nav>
-
-    <% if(message != "") { %>
-    <section id="message">
-      <p><%= message %></p>
-      <span id="close">&times;</span>
-    </section>
-    <% } %>
-
-    <header>
-      <article>
-        <h1>Bem vindo(a) ao Catálogo de Filmes do Lorenzo!</h1>
-      </article>
-    </header>
-
-    <section id="cadastro">
-      <h1 style="text-align: center">Filmes:</h1>
-      <h5 style="text-align: center">
-        (Clique no poster para ver os detralhes)
-      </h5>
-      <section id="filmes"></section>
-      <% filmes.forEach(item => { %>
+    <section id="filmes">
+      <h3>Têm certeza que quer apagar o filme?!</h3>
       <section class="card">
         <article id="content">
           <ul>
-            <li><%= item.nome %></li>
-            <a href="/filmes/<%= item.id%>">
-              <img src="<%= item.imagem %>" width="250" />
+            <li>Nome: <%= filme.nome %></li>
+            <a href="/">
+              <img src="<%= filme.imagem %>" width="200" />
             </a>
-            <li>Sinopse: <%= item.descricao %></li>
+            <li>Sinopse: <%= filme.descricao %></li>
           </ul>
         </article>
       </section>
-      <% }) %>
+      <h2>Confirmar</h2>
     </section>
 
     <footer>
@@ -64,7 +47,6 @@
         >
       </p>
     </footer>
-
     <script src="/js/script.js"></script>
   </body>
 </html>
