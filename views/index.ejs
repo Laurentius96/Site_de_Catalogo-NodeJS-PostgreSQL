@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Catálogo de filmes</title>
+    <title>Catálogo</title>
   </head>
 
   <body>
     <nav>
       <img
-        src="/img/logo-blue.gif"
+        src="http://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2017/08/anuncio_mostra_competitiva_festival_cinema_2017_Agencia_Brasilia.gif"
         class="img-fluid gif"
         alt="Animação Logo Blue"
       />
@@ -20,7 +20,7 @@
           <a href="#">Home</a>
         </li>
         <li>
-          <a href="#criar">Criar</a>
+          <a href="/criar">Criar</a>
         </li>
       </ul>
     </nav>
@@ -39,8 +39,10 @@
     </header>
 
     <section id="cadastro">
-      <h1 style="text-align: center">Filmes Cadastrados:</h1>
-      <h5 style="text-align: center">(Clique no poster para detalhe)</h5>
+      <h1 style="text-align: center">Filmes:</h1>
+      <h5 style="text-align: center">
+        (Clique no poster para ver os detralhes)
+      </h5>
       <section id="filmes"></section>
       <% filmes.forEach(item => { %>
       <section class="card">
@@ -56,37 +58,7 @@
       </section>
       <% }) %>
     </section>
-
-    <section id="inscrever">
-      <h2>Inscreva-se!</h2>
-
-      <form action="/subscription" method="POST">
-        <div>
-          <label for="nome">Nome: </label>
-          <input
-            type="text"
-            name="nome"
-            id="nome"
-            placeholder="Digite seu nome"
-            required
-          />
-        </div>
-
-        <div>
-          <label for="email">E-mail: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Digite seu email"
-            required
-          />
-        </div>
-
-        <button type="submit">Inscrever-se</button>
-      </form>
-    </section>
-
+ 
     <footer>
       <p>
         Projeto criado por:
