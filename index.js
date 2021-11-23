@@ -31,16 +31,38 @@ app.get("/criar", (req, res) => {
 app.post("/criar", async (req, res) => {
   const { nome, imagem, descricao } = req.body;
 
-  // Método create
-  const filme = await Filme.create({
-    nome,
-    imagem,
-    descricao,
-  });
+  if (!nome) {
+    res.render("criar", {
+      message: "Por favor, nome do filme não deve ficar em branco!",
+    });
+  } else if (!imagem) {
+    res.render("criar", {
+      message: "Por favor, colocar um poster do filme!",
+    });
+  } else if (!descricao) {
+    res.render("criar", {
+      message: "Por favor, sinopse do filme não deve ficar em branco!",
+    });
+  } else {
+    try {
+      const filme = await Filme.create({
+        nome,
+        descricao,
+        imagem,
+      });
 
-  message = "Novo filme adicionado!";
+      res.render("criar", {
+        filme,
+        message: "Seu filme foi cadastrado!",
+      });
+    } catch (err) {
+      console.log(err);
 
-  res.render("criar", { message });
+      res.render("criar", {
+        message: "Ocorreu um erro ao cadastrar o Filme!",
+      });
+    }
+  }
 });
 
 app.listen(port, () =>
