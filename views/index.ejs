@@ -38,14 +38,18 @@
       </article>
     </header>
 
-    <section id="filmes">
-      <h3>Filmes cadastrados:</h3>
+    <section id="cadastro">
+      <h1 style="text-align: center">Filmes Cadastrados:</h1>
+      <h5 style="text-align: center">(Clique no poster para detalhe)</h5>
+      <section id="filmes"></section>
       <% filmes.forEach(item => { %>
       <section class="card">
         <article id="content">
           <ul>
-            <li>Nome: <%= item.nome %></li>
-            <img src="<%= item.imagem %>" width="250" />
+            <li><%= item.nome %></li>
+            <a href="/filmes/<%= item.id%>">
+              <img src="<%= item.imagem %>" width="250" />
+            </a>
             <li>Resumo: <%= item.descricao %></li>
           </ul>
         </article>
@@ -85,8 +89,10 @@
 
     <footer>
       <p>
-        < The future is blue />
-        <a href="https://blueedtech.com.br/" target="_blank"> BlueEdtech</a>
+        Projeto criado por:
+        <a href="https://github.com/Laurentius96" target="_blank">
+          Lorenzo C. Bianchi</a
+        >
       </p>
     </footer>
 

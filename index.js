@@ -13,9 +13,18 @@ const Filme = require("./models/filme"); // Faz a conexão com o banco e recebe 
 
 const message = "";
 
+
 app.get("/", async (req, res) => {
   const filmes = await Filme.findAll();
   res.render("index", { filmes, message });
+});
+
+// Rota para trazer os detalhes de um filme através do seu ID(PK)
+app.get("/filmes/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+  res.render("detalhes", {
+    filme,
+  });
 });
 
 app.listen(port, () =>
