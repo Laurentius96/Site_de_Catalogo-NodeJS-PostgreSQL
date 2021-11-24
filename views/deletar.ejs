@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pr-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Área de Deletar</title>
+    <link rel="stylesheet" href="/css/criar.css" />
+    <title>Área de Exclusão</title>
   </head>
+
   <body>
     <nav>
-      <img
-        src="http://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2017/08/anuncio_mostra_competitiva_festival_cinema_2017_Agencia_Brasilia.gif"
-        class="img-fluid gif"
-        alt="Gif"
-      />
       <ul>
         <li>
           <a href="/">Home</a>
@@ -21,32 +17,28 @@
         <li>
           <a href="/criar">Criar</a>
         </li>
+        <li>
+          <a href="/sobre">Sobre</a>
+        </li>
       </ul>
     </nav>
-    <section id="filmes">
-      <h3>Têm certeza que quer apagar o filme?!</h3>
-      <section class="card">
-        <article id="content">
-          <ul>
-            <li>Nome: <%= filme.nome %></li>
-            <a href="/">
-              <img src="<%= filme.imagem %>" width="200" />
-            </a>
-            <li>Sinopse: <%= filme.descricao %></li>
-          </ul>
-        </article>
-      </section>
-      <h2>Confirmar</h2>
-    </section>
 
-    <footer>
-      <p>
-        Projeto criado por:
-        <a href="https://github.com/Laurentius96" target="_blank">
-          Lorenzo C. Bianchi</a
-        >
-      </p>
-    </footer>
+    <h1>Tem certeza que deseja excluir o filme <%= filme.nome %>?!</h1>
+
+    <!-- <% if(message != "") { %>
+    <section id="message">
+      <p><%= message %></p>
+      <span id="close">&times;</span>
+    </section>
+    <% } %>  -->
+
+    <% if(filme != null) { %>
+    <section id="inscrever">
+      <form action="/filmes/deletar/<%= filme.id %>" method="POST">
+        <button type="submit">Excluir</button>
+      </form>
+    </section>
+    <% } %>
     <script src="/js/script.js"></script>
   </body>
 </html>

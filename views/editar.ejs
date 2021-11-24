@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/criar.css" />
+    <title>Área de Edição</title>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/criar">Criar</a>
+        </li>
+        <li>
+          <a href="/sobre">Sobre</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- <% if(message != "") { %>
+    <section id="message">
+      <p><%= message %></p>
+      <span id="close">&times;</span>
+    </section>
+    <% } %> -->
+
+    <h1>Gostaria de editar o filme - <%= filme.nome %>?</h1>
+
+    <form action="/filmes/editar/<%= filme.id %>" method="POST">
+      <section class="card-container">
+        <section class="inside-card">
+          <div>
+            <label for="nome">Digite o novo nome: </label>
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Nome do filme"
+              value="<%= filme.nome %>"
+              required
+            />
+          </div>
+        </section>
+
+        <section class="inside-card">
+          <div>
+            <label for="imagem">Coloque o novo link do poster: </label>
+            <input
+              type="text"
+              name="imagem"
+              id="imagem"
+              placeholder="Link do poster"
+              value="<%= filme.imagem %>"
+              required
+            />
+            <a
+              href="https://www.blu-ray.com/theatrical/"
+              target="__blank"
+              style="text-align: center"
+              >Posters!</a
+            >
+          </div>
+        </section>
+
+        <section class="inside-card">
+          <div>
+            <label for="descricao">Digite a nova sinopse do filme: </label>
+            <input
+              type="text"
+              name="descricao"
+              id="descricao"
+              value="<%= filme.descricao %>"
+              placeholder="Sinopse do filme"
+            />
+          </div>
+        </section>
+        <button type="submit">Editar</button>
+      </section>
+    </form>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

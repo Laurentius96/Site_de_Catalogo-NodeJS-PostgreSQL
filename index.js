@@ -10,7 +10,7 @@ app.use(express.urlencoded());
 require("dotenv").config();
 const Filme = require("./models/filme"); // Faz a conexão com o banco e recebe o modelo do Sequelize
 
-const message = "";
+var message = "";
 
 app.get("/", async (req, res) => {
   const filmes = await Filme.findAll();
@@ -68,18 +68,20 @@ app.post("/criar", async (req, res) => {
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );
+
 // Rota que edita o filme através do seu ID(PK)
 app.get("/filmes/editar/:id", async (req, res) => {
   const filme = await Filme.findByPk(req.params.id);
 
   if (!filme) {
     res.render("editar", {
-      mensagem: "Filme não encontrado!",
+      message: "Filme não encontrado!",
     });
   }
 
   res.render("editar", {
     filme,
+    message,
   });
 });
 
@@ -96,7 +98,7 @@ app.post("/filmes/editar/:id", async (req, res) => {
 
   res.render("editar", {
     filme: filmeEditado,
-    messageSucesso: "Filme editado!",
+    message: "Filme editado!",
   });
 });
 
@@ -106,12 +108,13 @@ app.get("/filmes/deletar/:id", async (req, res) => {
 
   if (!filme) {
     res.render("deletar", {
-      mensagem: "Filme não foi encontrado!",
+      filme,
+      message: "Desculpa, mas o filme não encontrado!",
     });
   }
-
   res.render("deletar", {
     filme,
+    message,
   });
 });
 
@@ -120,13 +123,19 @@ app.post("/filmes/deletar/:id", async (req, res) => {
 
   if (!filme) {
     res.render("deletar", {
-      message: "Filme não foi encontrado!",
+      filme,
+      message: "Desculpa, mas o filme não encontrado!",
     });
   }
 
   await filme.destroy();
 
-  message = `Filme ${filme.nome} deletado do catálogo`;
+  message = `Filme ${filme.nome} deletado com sucesso!`;
 
   res.redirect("/");
 });
+
+// Rota que leva a página sobre o criador
+app.get('/sobre' , (req,res) => {
+	res.render('sobre.ejs', )
+}); 

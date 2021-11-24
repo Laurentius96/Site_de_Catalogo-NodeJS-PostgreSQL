@@ -4,49 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/detalhes.css" />
     <title>Detalhes do filmes</title>
   </head>
   <body>
     <nav>
-      <img
-        src="http://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2017/08/anuncio_mostra_competitiva_festival_cinema_2017_Agencia_Brasilia.gif"
-        class="img-fluid gif"
-        alt="Gif"
-      />
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
-          <a href="/criar">Criar</a>
+          <a href="editar/<%= filme.id %>">Editar</a>
+        </li>
+        <li>
+          <a href="deletar/<%= filme.id %>">Excluir</a>
         </li>
       </ul>
     </nav>
-    <section id="filmes">
-      <h3>Lista de filmes:</h3>
-      <section class="card">
-        <article id="content">
-          <ul>
-            <li>Nome: <%= filme.nome %></li>
-            <a href="/">
-              <img src="<%= filme.imagem %>" width="200" />
-            </a>
-            <li>Sinopse: <%= filme.descricao %></li>
-            <a href="deletar/<%= filme.id %>"><li>Deletar</li> </a>
-          </ul>
-        </article>
+
+    <section class="card-container">
+      <section class="card-title"><%= filme.nome %></section>
+      <section class="recipe-image">
+        <img
+          style="height: 100%; width: 100%; object-fit: contain"
+          src="<%= filme.imagem %>"
+        />
       </section>
+
+      <section class="card-items">
+        <span class="card-item-title">Sinopse</span>
+        <ul class="checkmark">
+          <li><%= filme.descricao %></li>
+        </ul>
+      </section>
+
+ 
     </section>
 
-    <footer>
-      <p>
-        Projeto criado por:
-        <a href="https://github.com/Laurentius96" target="_blank">
-          Lorenzo C. Bianchi</a
-        >
-      </p>
-    </footer>
     <script src="/js/script.js"></script>
   </body>
 </html>

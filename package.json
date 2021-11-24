@@ -1,7 +1,7 @@
 {
-  "name": "catalogo_filmes",
+  "name": "Site_de_Catalogo-NodeJS-PostgreSQL",
   "version": "1.0.0",
-  "description": "Catalogo de filmes criado para o Módulo 02 - NodeJS Express MVC + SQL",
+  "description": "Trabalho relacionado ao Projeto Final da BlueEdTech, esse que consiste na criação de um catálogo (com tema livre), onde será possível no futuro realizar as 4 operações do CRUD",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gpereira-blueedtech/catalogo_filmes.git"
+    "url": "https://github.com/Laurentius96/Site_de_Catalogo-NodeJS-PostgreSQL"
   },
-  "author": "",
+  "author": "Lorenzo Costa Bianchi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gpereira-blueedtech/catalogo_filmes/issues"
+    "url": "https://github.com/Laurentius96/Site_de_Catalogo-NodeJS-PostgreSQL"
   },
-  "homepage": "https://github.com/gpereira-blueedtech/catalogo_filmes#readme",
+  "homepage": "https://github.com/Laurentius96/Site_de_Catalogo-NodeJS-PostgreSQL",
   "devDependencies": {
     "nodemon": "^2.0.15"
   },

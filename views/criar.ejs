@@ -4,77 +4,78 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/criar.css" />
     <title>Adicionar filme</title>
   </head>
 
   <body>
     <nav>
-      <img
-        src="http://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2017/08/anuncio_mostra_competitiva_festival_cinema_2017_Agencia_Brasilia.gif"
-        class="img-fluid gif"
-        alt="Gif"
-      />
       <ul>
         <li>
           <a href="/">Home</a>
         </li>
+        <li>
+          <a href="/sobre">Sobre</a>
+        </li>
       </ul>
     </nav>
 
-    <% if(message != "") { %>
+    <h1>Gostaria de adicinar um filme?</h1>
+
+    <!-- <% if(message != "") { %>
     <section id="message">
       <p><%= message %></p>
       <span id="close">&times;</span>
     </section>
-    <% } %>
+    <% } %> -->
 
-    <section id="inscrever">
-      <form action="/criar" method="POST">
-        <div>
-          <label for="nome">Digite o nome do filme: </label>
-          <input
-            type="text"
-            name="nome"
-            id="nome"
-            placeholder="Nome do filme"
-            required
-          />
-        </div>
+    <form action="/criar" method="POST">
+      <section class="card-container">
+        <section class="inside-card">
+          <div>
+            <label for="nome">Nome do filme que será incluido: </label>
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Nome"
+              required
+            />
+          </div>
+        </section>
 
-        <div>
-          <label for="imagem">Coloque o link do poster: </label>
-          <input
-            type="text"
-            name="imagem"
-            id="imagem"
-            placeholder="Link do poster"
-            required
-          />
-        </div>
+        <section class="inside-card">
+          <div>
+            <label for="imagem">Link do poster que será incluido: </label>
+            <input
+              type="text"
+              name="imagem"
+              id="imagem"
+              placeholder="Link"
+              required
+            />
+            <a href="https://www.blu-ray.com/theatrical/" target="__blank"
+              >Posters!</a
+            >
+          </div>
+        </section>
 
-        <div>
-          <label for="descricao">Digite a descrição do filme: </label>
-          <input
-            type="text"
-            name="descricao"
-            id="descricao"
-            placeholder="Sinopse do filme"
-          />
-        </div>
+        <section class="inside-card">
+          <div>
+            <label for="descricao">Sinopse do filme que será incluido: </label>
+            <input
+              type="text"
+              name="descricao"
+              id="descricao"
+              placeholder="Sinopse"
+            />
+          </div>
+        </section>
 
         <button type="submit">Adicionar</button>
-      </form>
-    </section>
+      </section>
+    </form>
 
-    <footer>
-      <p>
-        Projeto criado por:
-        <a href="https://github.com/Laurentius96" target="_blank">
-          Lorenzo C. Bianchi</a
-        >
-      </p>
-    </footer>
     <script src="/js/script.js"></script>
   </body>
 </html>

@@ -10,61 +10,54 @@
 
   <body>
     <nav>
-      <img
-        src="http://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2017/08/anuncio_mostra_competitiva_festival_cinema_2017_Agencia_Brasilia.gif"
-        class="img-fluid gif"
-        alt="Gif"
-      />
       <ul>
         <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
           <a href="/criar">Criar</a>
+        </li>
+        <li>
+          <a href="/sobre">Sobre</a>
         </li>
       </ul>
     </nav>
 
-    <% if(message != "") { %>
-    <section id="message">
+    <!-- <% if(message != "") { %>
+    <section id="example" class="message-holder">
       <p><%= message %></p>
       <span id="close">&times;</span>
     </section>
-    <% } %>
+    <% } %> -->
 
     <header>
       <article>
-        <h1>Bem vindo(a) ao Catálogo de Filmes do Lorenzo!</h1>
+        <h1 style="text-align: center">
+          Bem vindo(a) ao Catálogo de Filmes do Lorenzo!
+        </h1>
       </article>
     </header>
 
     <section id="cadastro">
-      <h1 style="text-align: center">Filmes:</h1>
       <h5 style="text-align: center">
-        (Clique no poster para ver os detralhes)
+        (Clique no poster para deletar ou modificar o filme)
       </h5>
-      <section id="filmes"></section>
-      <% filmes.forEach(item => { %>
-      <section class="card">
-        <article id="content">
-          <ul>
-            <li><%= item.nome %></li>
-            <a href="/filmes/<%= item.id%>">
-              <img src="<%= item.imagem %>" width="250" />
-            </a>
-            <li>Sinopse: <%= item.descricao %></li>
-          </ul>
-        </article>
-      </section>
-      <% }) %>
-    </section>
 
-    <footer>
-      <p>
-        Projeto criado por:
-        <a href="https://github.com/Laurentius96" target="_blank">
-          Lorenzo C. Bianchi</a
-        >
-      </p>
-    </footer>
+      <section class="card-container">
+        <% filmes.forEach((item) => { %>
+          <section class="card u-clearfix">
+          <a href="/filmes/<%= item.id %>">
+            <img src="<%= item.imagem %>" class="card-media"
+          </a>
+          <!-- <img src="<%= item.imagem %>" alt="" class="card-media" /> -->
+          <section class="card-body">
+            <h2 class="card-title"><%= item.nome %></h2>
+            <span class="card-description subtle"><%=item.descricao %></span>
+        </section>
+      </section>
+      <% }) %>      
 
     <script src="/js/script.js"></script>
   </body>
 </html>
+
